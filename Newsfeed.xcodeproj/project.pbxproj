@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		9FBB44572387BA2800FE9355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44562387BA2800FE9355 /* AppDelegate.swift */; };
 		9FBB44592387BA2800FE9355 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44582387BA2800FE9355 /* SceneDelegate.swift */; };
-		9FBB445B2387BA2800FE9355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB445A2387BA2800FE9355 /* ViewController.swift */; };
+		9FBB445B2387BA2800FE9355 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB445A2387BA2800FE9355 /* NewsFeedViewController.swift */; };
 		9FBB445E2387BA2800FE9355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FBB445C2387BA2800FE9355 /* Main.storyboard */; };
 		9FBB44602387BA2B00FE9355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FBB445F2387BA2B00FE9355 /* Assets.xcassets */; };
 		9FBB44632387BA2B00FE9355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FBB44612387BA2B00FE9355 /* LaunchScreen.storyboard */; };
 		9FBB446E2387BA2C00FE9355 /* NewsfeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB446D2387BA2C00FE9355 /* NewsfeedTests.swift */; };
+		9FBB44862387BF1200FE9355 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44852387BF1200FE9355 /* Storyboarded.swift */; };
+		9FBB44882387BF3000FE9355 /* ViewModelBased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44872387BF3000FE9355 /* ViewModelBased.swift */; };
+		9FBB448B2387BF4A00FE9355 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB448A2387BF4A00FE9355 /* ViewModel.swift */; };
+		9FBB448D2387C02800FE9355 /* NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB448C2387C02800FE9355 /* NewsFeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +34,7 @@
 		9FBB44532387BA2800FE9355 /* Newsfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBB44562387BA2800FE9355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FBB44582387BA2800FE9355 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9FBB445A2387BA2800FE9355 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9FBB445A2387BA2800FE9355 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		9FBB445D2387BA2800FE9355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9FBB445F2387BA2B00FE9355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FBB44622387BA2B00FE9355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +42,10 @@
 		9FBB44692387BA2C00FE9355 /* NewsfeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsfeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FBB446D2387BA2C00FE9355 /* NewsfeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTests.swift; sourceTree = "<group>"; };
 		9FBB446F2387BA2C00FE9355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FBB44852387BF1200FE9355 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		9FBB44872387BF3000FE9355 /* ViewModelBased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBased.swift; sourceTree = "<group>"; };
+		9FBB448A2387BF4A00FE9355 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9FBB448C2387C02800FE9355 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +111,8 @@
 		9FBB44782387BBB300FE9355 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9FBB445A2387BA2800FE9355 /* ViewController.swift */,
+				9FBB445A2387BA2800FE9355 /* NewsFeedViewController.swift */,
+				9FBB448C2387C02800FE9355 /* NewsFeedViewModel.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +179,9 @@
 		9FBB44802387BCB900FE9355 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				9FBB44852387BF1200FE9355 /* Storyboarded.swift */,
+				9FBB44872387BF3000FE9355 /* ViewModelBased.swift */,
+				9FBB448A2387BF4A00FE9355 /* ViewModel.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -304,9 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FBB445B2387BA2800FE9355 /* ViewController.swift in Sources */,
+				9FBB44882387BF3000FE9355 /* ViewModelBased.swift in Sources */,
+				9FBB445B2387BA2800FE9355 /* NewsFeedViewController.swift in Sources */,
 				9FBB44572387BA2800FE9355 /* AppDelegate.swift in Sources */,
+				9FBB448D2387C02800FE9355 /* NewsFeedViewModel.swift in Sources */,
 				9FBB44592387BA2800FE9355 /* SceneDelegate.swift in Sources */,
+				9FBB448B2387BF4A00FE9355 /* ViewModel.swift in Sources */,
+				9FBB44862387BF1200FE9355 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
