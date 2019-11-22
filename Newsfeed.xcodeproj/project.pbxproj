@@ -79,13 +79,14 @@
 		9FBB44552387BA2800FE9355 /* Newsfeed */ = {
 			isa = PBXGroup;
 			children = (
-				9FBB44562387BA2800FE9355 /* AppDelegate.swift */,
-				9FBB44582387BA2800FE9355 /* SceneDelegate.swift */,
-				9FBB445A2387BA2800FE9355 /* ViewController.swift */,
-				9FBB445C2387BA2800FE9355 /* Main.storyboard */,
-				9FBB445F2387BA2B00FE9355 /* Assets.xcassets */,
-				9FBB44612387BA2B00FE9355 /* LaunchScreen.storyboard */,
-				9FBB44642387BA2B00FE9355 /* Info.plist */,
+				9FBB44832387BCE200FE9355 /* Data */,
+				9FBB44822387BCDC00FE9355 /* Network */,
+				9FBB44812387BCD600FE9355 /* Models */,
+				9FBB447E2387BCAC00FE9355 /* Custom Views */,
+				9FBB447C2387BC9E00FE9355 /* Helpers */,
+				9FBB447B2387BBD500FE9355 /* Project Files */,
+				9FBB44792387BBBE00FE9355 /* Resources */,
+				9FBB44782387BBB300FE9355 /* ViewControllers */,
 			);
 			path = Newsfeed;
 			sourceTree = "<group>";
@@ -97,6 +98,109 @@
 				9FBB446F2387BA2C00FE9355 /* Info.plist */,
 			);
 			path = NewsfeedTests;
+			sourceTree = "<group>";
+		};
+		9FBB44782387BBB300FE9355 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB445A2387BA2800FE9355 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9FBB44792387BBBE00FE9355 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB447A2387BBC800FE9355 /* Storyboards */,
+				9FBB445F2387BA2B00FE9355 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9FBB447A2387BBC800FE9355 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB445C2387BA2800FE9355 /* Main.storyboard */,
+				9FBB44612387BA2B00FE9355 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9FBB447B2387BBD500FE9355 /* Project Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB44562387BA2800FE9355 /* AppDelegate.swift */,
+				9FBB44582387BA2800FE9355 /* SceneDelegate.swift */,
+				9FBB44642387BA2B00FE9355 /* Info.plist */,
+			);
+			path = "Project Files";
+			sourceTree = "<group>";
+		};
+		9FBB447C2387BC9E00FE9355 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB44802387BCB900FE9355 /* Protocols */,
+				9FBB447D2387BCA400FE9355 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9FBB447D2387BCA400FE9355 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9FBB447E2387BCAC00FE9355 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB447F2387BCB400FE9355 /* Cells */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		9FBB447F2387BCB400FE9355 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9FBB44802387BCB900FE9355 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9FBB44812387BCD600FE9355 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9FBB44822387BCDC00FE9355 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB44842387BD1100FE9355 /* Resources */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9FBB44832387BCE200FE9355 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9FBB44842387BD1100FE9355 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,7 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CEQW7LX82;
-				INFOPLIST_FILE = Newsfeed/Info.plist;
+				INFOPLIST_FILE = "Newsfeed/Project Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -382,7 +486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CEQW7LX82;
-				INFOPLIST_FILE = Newsfeed/Info.plist;
+				INFOPLIST_FILE = "Newsfeed/Project Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
