@@ -23,6 +23,7 @@ struct NewsFeedCellViewModel: ViewModel {
     }
     
     var sourceText: String {
+        guard let sourceName = sourceName else { return "" }
         return "From: \(sourceName)"
     }
     
@@ -34,10 +35,10 @@ struct NewsFeedCellViewModel: ViewModel {
     static func from(_ article: Article, isFullWidth: Bool) -> NewsFeedCellViewModel {
         return NewsFeedCellViewModel(isFullWidth: isFullWidth,
                                      title: article.title,
-                                     imageUrl: article.description,
-                                     sourceName: article.content,
-                                     description: article.imageUrl,
-                                     content: article.sourceName,
+                                     imageUrl: article.imageUrl,
+                                     sourceName: article.sourceName,
+                                     description: article.description,
+                                     content: article.content,
                                      publishDate: article.publishDate)
     }
 }

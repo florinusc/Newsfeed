@@ -21,7 +21,7 @@ struct Article {
 extension Article {
     static func makeFirstMock() -> Article {
         return Article(title: "Scooter Braun Tells Taylor Swift His Family's Death Threats Are Because of Her Attacks - TMZ",
-                       imageUrl: nil,
+                       imageUrl: "https://kelseyrose.co.uk/wp-content/uploads/2016/02/landscape-1455583846-gettyimages-510441912-600x300.jpg",
                        urlString: "https://news.google.com/__i/rss/rd/articles/CBMiVGh0dHBzOi8vd3d3LnRtei5jb20vMjAxOS8xMS8yMi9zY29vdGVyLWJyYXVuLXNwZWFrcy10YXlsb3Itc3dpZnQtZmFucy1kZWF0aC10aHJlYXRzL9IBVGh0dHBzOi8vYW1wLnRtei5jb20vMjAxOS8xMS8yMi9zY29vdGVyLWJyYXVuLXNwZWFrcy10YXlsb3Itc3dpZnQtZmFucy1kZWF0aC10aHJlYXRzLw?oc=5",
                        description: nil,
                        content: nil,

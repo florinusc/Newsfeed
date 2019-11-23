@@ -16,8 +16,7 @@ class NewsFeedViewController: UIViewController {
     // MARK: - Private constants
     private let sidePadding: CGFloat = 15.0
     private let cellSpacing: CGFloat = 15.0
-    private let normalCellAspectRatio: CGFloat = 1.5
-    private let cellHeight: CGFloat = 200.0
+    private let cellHeight: CGFloat = 220.0
     
     // MARK: - Public variables
     var viewModel: NewsFeedViewModel!
@@ -27,6 +26,7 @@ class NewsFeedViewController: UIViewController {
         if UIDevice.current.orientation.isLandscape { return 3 }
         return 2
     }
+    private var loadingView: LoadingView?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -41,9 +41,12 @@ class NewsFeedViewController: UIViewController {
     
     // MARK: - Private functions
     private func setup() {
+        setupLoader()
         setupCollectionView()
+        showLoader()
         viewModel.getData { [weak self] (error) in
             guard let self = self else { return }
+            self.hideLoader()
             if let error = error {
                 self.presentAlert(for: error)
                 return
@@ -56,6 +59,22 @@ class NewsFeedViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(NewsFeedCell.self)
+    }
+    
+    private func setupLoader() {
+        loadingView = .fromNib()
+        loadingView?.isHidden = true
+        loadingView?.frame = UIScreen.main.bounds
+        guard let loadingView = loadingView else { return }
+        view.addSubview(loadingView)
+    }
+    
+    private func showLoader() {
+        loadingView?.isHidden = false
+    }
+    
+    private func hideLoader() {
+        loadingView?.isHidden = true
     }
 }
 

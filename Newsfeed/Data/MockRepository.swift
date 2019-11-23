@@ -21,6 +21,8 @@ class MockRepository: Repository {
             block(Result.failure(CustomError.generalError))
             return
         }
+        
         block(Result.success([Article.makeFirstMock(), Article.makeSecondMock(), Article.makeThirdMock(), Article.makeFourthMock(), Article.makeFirstMock(), Article.makeSecondMock(), Article.makeThirdMock(), Article.makeFourthMock(), Article.makeFirstMock(), Article.makeSecondMock(), Article.makeThirdMock(), Article.makeFourthMock(), Article.makeFirstMock(), Article.makeSecondMock(), Article.makeThirdMock(), Article.makeFourthMock(), Article.makeFirstMock(), Article.makeSecondMock(), Article.makeThirdMock(), Article.makeFourthMock()]))
+        
     }
 }

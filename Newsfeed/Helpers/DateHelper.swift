@@ -23,7 +23,7 @@ class DateHelper {
     func time(since date: Date) -> String? {
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.allowedUnits = [.hour]
-        dateComponentsFormatter.unitsStyle = .full
+        dateComponentsFormatter.unitsStyle = .abbreviated
         return dateComponentsFormatter.string(from: date, to: Date())
     }
 }
