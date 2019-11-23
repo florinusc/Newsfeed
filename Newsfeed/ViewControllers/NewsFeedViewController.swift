@@ -14,7 +14,10 @@ class NewsFeedViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     // MARK: - Private constants
-    private let cellHeight: CGFloat = 100.0
+    private let sidePadding: CGFloat = 15.0
+    private let cellSpacing: CGFloat = 15.0
+    private let normalCellAspectRatio: CGFloat = 1.5
+    private let cellHeight: CGFloat = 200.0
     
     // MARK: - Public variables
     var viewModel: NewsFeedViewModel!
@@ -29,6 +32,11 @@ class NewsFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.reloadData()
     }
     
     // MARK: - Private functions
@@ -65,17 +73,16 @@ extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15.0, left: 15.0, bottom: 35.0, right: 15.0)
+        return UIEdgeInsets(top: sidePadding, left: sidePadding, bottom: sidePadding, right: sidePadding)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxWidth = UIScreen.main.bounds.width - 45.0
+        let maxWidth = collectionView.frame.width - 2 * sidePadding
+        let normalWidth = ((maxWidth - (cellSpacing * CGFloat(numberOfCellsPerRow - 1)).rounded(.up)) / CGFloat(numberOfCellsPerRow)).rounded(.down)
         if let newsFeedCellViewModel = viewModel.newsFeedCellViewModel(at: indexPath), newsFeedCellViewModel.isFullWidth {
-            let width = maxWidth + 15.0
-            return CGSize(width: width, height: maxWidth / 2)
+            return CGSize(width: maxWidth, height: cellHeight)
         }
-        let width = maxWidth / CGFloat(numberOfCellsPerRow)
-        return CGSize(width: width, height: width * 1.5)
+        return CGSize(width: normalWidth, height: cellHeight)
     }
 }
 
