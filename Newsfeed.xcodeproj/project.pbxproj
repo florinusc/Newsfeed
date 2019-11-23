@@ -31,6 +31,10 @@
 		9FBB44A5238932E400FE9355 /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44A4238932E400FE9355 /* MockRepository.swift */; };
 		9FBB44A72389335800FE9355 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44A62389335800FE9355 /* CustomError.swift */; };
 		9FBB44A92389388900FE9355 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44A82389388900FE9355 /* UIViewController+Extension.swift */; };
+		9FBB44AB23893A2400FE9355 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44AA23893A2400FE9355 /* NibLoadableView.swift */; };
+		9FBB44AD23893A3700FE9355 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44AC23893A3700FE9355 /* ReusableView.swift */; };
+		9FBB44AF23893A5A00FE9355 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44AE23893A5A00FE9355 /* UICollectionView+Extension.swift */; };
+		9FBB44B123893AC100FE9355 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44B023893AC100FE9355 /* UICollectionViewCell+Extension.swift */; };
 		D5C0CDFFC972F511BCF155B8 /* Pods_Newsfeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885B6D0D72963A72E53563A /* Pods_Newsfeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,10 @@
 		9FBB44A4238932E400FE9355 /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 		9FBB44A62389335800FE9355 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		9FBB44A82389388900FE9355 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9FBB44AA23893A2400FE9355 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		9FBB44AC23893A3700FE9355 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		9FBB44AE23893A5A00FE9355 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		9FBB44B023893AC100FE9355 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		A01793F5FA87B8D70705C673 /* Pods-NewsfeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsfeedTests.debug.xcconfig"; path = "Target Support Files/Pods-NewsfeedTests/Pods-NewsfeedTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C44F66D061F719B353B693EE /* Pods_NewsfeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsfeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF49FBA026A7FAB47B0C6775 /* Pods-Newsfeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newsfeed.release.xcconfig"; path = "Target Support Files/Pods-Newsfeed/Pods-Newsfeed.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +217,8 @@
 				9FBB449823884C5000FE9355 /* UIImageView+Extension.swift */,
 				9FBB449A23884DE100FE9355 /* NSLayoutConstraint+Extension.swift */,
 				9FBB44A82389388900FE9355 /* UIViewController+Extension.swift */,
+				9FBB44AE23893A5A00FE9355 /* UICollectionView+Extension.swift */,
+				9FBB44B023893AC100FE9355 /* UICollectionViewCell+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +247,8 @@
 				9FBB44852387BF1200FE9355 /* Storyboarded.swift */,
 				9FBB44872387BF3000FE9355 /* ViewModelBased.swift */,
 				9FBB448A2387BF4A00FE9355 /* ViewModel.swift */,
+				9FBB44AA23893A2400FE9355 /* NibLoadableView.swift */,
+				9FBB44AC23893A3700FE9355 /* ReusableView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -462,10 +474,14 @@
 				9FBB449123883A7300FE9355 /* NewsFeedCellViewModel.swift in Sources */,
 				9FBB449423883A8B00FE9355 /* NewsFeedCell.swift in Sources */,
 				9FBB44A1238932C100FE9355 /* Repository.swift in Sources */,
+				9FBB44B123893AC100FE9355 /* UICollectionViewCell+Extension.swift in Sources */,
 				9FBB44A3238932D800FE9355 /* OnlineRepository.swift in Sources */,
+				9FBB44AD23893A3700FE9355 /* ReusableView.swift in Sources */,
 				9FBB44A5238932E400FE9355 /* MockRepository.swift in Sources */,
 				9FBB449923884C5000FE9355 /* UIImageView+Extension.swift in Sources */,
 				9FBB449F23892F4900FE9355 /* DateHelper.swift in Sources */,
+				9FBB44AF23893A5A00FE9355 /* UICollectionView+Extension.swift in Sources */,
+				9FBB44AB23893A2400FE9355 /* NibLoadableView.swift in Sources */,
 				9FBB44592387BA2800FE9355 /* SceneDelegate.swift in Sources */,
 				9FBB449B23884DE100FE9355 /* NSLayoutConstraint+Extension.swift in Sources */,
 				9FBB448B2387BF4A00FE9355 /* ViewModel.swift in Sources */,

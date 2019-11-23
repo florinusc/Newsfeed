@@ -21,12 +21,12 @@ class NewsFeedCell: UICollectionViewCell {
     // MARK - Public functions
     func setup(with viewModel: NewsFeedCellViewModel) {
         imageView.setImage(viewModel.imageUrl)
-        if viewModel.isFullWidth, let newHeightRatioConstraint = imageViewHeightRatio.constraintWithMultiplier(0.5) {
-            imageView.removeConstraint(imageViewHeightRatio)
-            imageView.addConstraint(newHeightRatioConstraint)
-            layoutIfNeeded()
-            imageViewHeightRatio = newHeightRatioConstraint
-        }
+//        if viewModel.isFullWidth, let newHeightRatioConstraint = imageViewHeightRatio.constraintWithMultiplier(0.5) {
+//            imageView.removeConstraint(imageViewHeightRatio)
+//            imageView.addConstraint(newHeightRatioConstraint)
+//            layoutIfNeeded()
+//            imageViewHeightRatio = newHeightRatioConstraint
+//        }
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.descriptionText
         sourceLabel.text = viewModel.sourceText

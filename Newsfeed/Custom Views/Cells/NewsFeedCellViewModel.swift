@@ -12,13 +12,13 @@ struct NewsFeedCellViewModel: ViewModel {
     
     let isFullWidth: Bool
     let title: String
-    let imageUrl: String
-    private let sourceName: String
-    private let description: String
-    private let content: String
+    let imageUrl: String?
+    private let sourceName: String?
+    private let description: String?
+    private let content: String?
     private let publishDate: String
     
-    var descriptionText: String {
+    var descriptionText: String? {
         return isFullWidth ? content : description
     }
     

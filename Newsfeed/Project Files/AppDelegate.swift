@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard #available(iOS 13.0, *) else {
             window = UIWindow()
-            let mainViewController = NewsFeedViewController.instantiate(with: NewsFeedViewModel())
+            let mainViewController = NewsFeedViewController.instantiate(with: NewsFeedViewModel(repository: MockRepository()))
             window?.rootViewController = mainViewController
             window?.makeKeyAndVisible()
             return true

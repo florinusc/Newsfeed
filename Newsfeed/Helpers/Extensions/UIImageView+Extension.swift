@@ -10,8 +10,8 @@ import Foundation
 import Kingfisher
 
 extension UIImageView {
-    func setImage(_ stringUrl: String) {
-        guard let url = URL(string: stringUrl) else { return }
+    func setImage(_ stringUrl: String?) {
+        guard let stringUrl = stringUrl, let url = URL(string: stringUrl) else { return }
         self.kf.setImage(with: url)
     }
 }

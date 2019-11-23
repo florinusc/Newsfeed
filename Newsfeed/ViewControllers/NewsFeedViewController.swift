@@ -26,13 +26,14 @@ class NewsFeedViewController: UIViewController {
     }
     
     // MARK: - Lifecycle
-    override func loadView() {
-        super.loadView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setup()
     }
     
     // MARK: - Private functions
     private func setup() {
+        setupCollectionView()
         viewModel.getData { [weak self] (error) in
             guard let self = self else { return }
             if let error = error {
@@ -42,6 +43,12 @@ class NewsFeedViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(NewsFeedCell.self)
+    }
 }
 
 extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -50,16 +57,25 @@ extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell: NewsFeedCell = collectionView.dequeueReusableCell(for: indexPath)
+        if let cellViewModel = viewModel.newsFeedCellViewModel(at: indexPath) {
+            cell.setup(with: cellViewModel)
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 15.0, left: 15.0, bottom: 35.0, right: 15.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxWidth = UIScreen.main.bounds.width - 45.0
         if let newsFeedCellViewModel = viewModel.newsFeedCellViewModel(at: indexPath), newsFeedCellViewModel.isFullWidth {
-            let width = collectionView.frame.width
-            return CGSize(width: width, height: cellHeight)
+            let width = maxWidth + 15.0
+            return CGSize(width: width, height: maxWidth / 2)
         }
-        let width = collectionView.frame.width / CGFloat(numberOfCellsPerRow)
-        return CGSize(width: width, height: cellHeight)
+        let width = maxWidth / CGFloat(numberOfCellsPerRow)
+        return CGSize(width: width, height: width * 1.5)
     }
 }
 
