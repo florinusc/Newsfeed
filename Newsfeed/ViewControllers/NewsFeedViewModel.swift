@@ -20,6 +20,7 @@ class NewsFeedViewModel: ViewModel {
     }
     
     // MARK: - Private variables
+    private var articles = [Article]()
     private var newsFeedCellViewModels = [NewsFeedCellViewModel]()
     
     // MARK: - Lifecycle
@@ -35,6 +36,7 @@ class NewsFeedViewModel: ViewModel {
             case .failure(let error):
                 block(error)
             case .success(let articles):
+                self.articles = articles
                 self.newsFeedCellViewModels = articles.enumerated().map { (index, article) -> NewsFeedCellViewModel in
                     return NewsFeedCellViewModel.from(article, isFullWidth: index % self.wideArticleIndex == 0)
                 }
@@ -46,5 +48,10 @@ class NewsFeedViewModel: ViewModel {
     func newsFeedCellViewModel(at indexPath: IndexPath) -> NewsFeedCellViewModel? {
         guard indexPath.row >= 0, indexPath.row < numberOfArticles else { return nil }
         return newsFeedCellViewModels[indexPath.row]
+    }
+    
+    func articleWebViewModel(at indexPath: IndexPath) -> ArticleWebViewModel? {
+        guard indexPath.row >= 0, indexPath.row < numberOfArticles else { return nil }
+        return ArticleWebViewModel(urlString: articles[indexPath.row].urlString)
     }
 }

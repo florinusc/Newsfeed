@@ -76,6 +76,15 @@ class NewsFeedViewController: UIViewController {
     private func hideLoader() {
         loadingView?.isHidden = true
     }
+    
+    private func openWebView(from indexPath: IndexPath) {
+        guard let articleWebViewModel = viewModel.articleWebViewModel(at: indexPath) else {
+            presentAlert(for: CustomError.generalError)
+            return
+        }
+        let articleWebViewController = ArticleWebViewController.instantiate(with: articleWebViewModel)
+        present(articleWebViewController, animated: true, completion: nil)
+    }
 }
 
 extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -89,6 +98,10 @@ extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewData
             cell.setup(with: cellViewModel)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        openWebView(from: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
