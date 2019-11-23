@@ -8,4 +8,36 @@
 
 import Foundation
 
-struct NewsFeedCellViewModel: ViewModel {}
+struct NewsFeedCellViewModel: ViewModel {
+    
+    let isFullWidth: Bool
+    let title: String
+    let imageUrl: String
+    private let sourceName: String
+    private let description: String
+    private let content: String
+    private let publishDate: String
+    
+    var descriptionText: String {
+        return isFullWidth ? content : description
+    }
+    
+    var sourceText: String {
+        return "From: \(sourceName)"
+    }
+    
+    var publishText: String {
+        guard let date = DateHelper.shared.date(from: publishDate), let timeSince = DateHelper.shared.time(since: date) else { return "" }
+        return "\(timeSince) ago"
+    }
+    
+    static func from(_ article: Article, isFullWidth: Bool) -> NewsFeedCellViewModel {
+        return NewsFeedCellViewModel(isFullWidth: isFullWidth,
+                                     title: article.title,
+                                     imageUrl: article.description,
+                                     sourceName: article.content,
+                                     description: article.imageUrl,
+                                     content: article.sourceName,
+                                     publishDate: article.publishDate)
+    }
+}

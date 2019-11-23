@@ -15,7 +15,6 @@ class NewsFeedViewController: UIViewController {
     
     // MARK: - Private constants
     private let cellHeight: CGFloat = 100.0
-    private let wideCellIndex: Int = 7
     
     // MARK: - Public variables
     var viewModel: NewsFeedViewModel!
@@ -25,11 +24,29 @@ class NewsFeedViewController: UIViewController {
         if UIDevice.current.orientation.isLandscape { return 3 }
         return 2
     }
+    
+    // MARK: - Lifecycle
+    override func loadView() {
+        super.loadView()
+        setup()
+    }
+    
+    // MARK: - Private functions
+    private func setup() {
+        viewModel.getData { [weak self] (error) in
+            guard let self = self else { return }
+            if let error = error {
+                self.presentAlert(for: error)
+                return
+            }
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfArticles
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -37,7 +54,7 @@ extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item % wideCellIndex == 0 {
+        if let newsFeedCellViewModel = viewModel.newsFeedCellViewModel(at: indexPath), newsFeedCellViewModel.isFullWidth {
             let width = collectionView.frame.width
             return CGSize(width: width, height: cellHeight)
         }
