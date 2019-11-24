@@ -45,6 +45,8 @@
 		9FBB44C1238A593F00FE9355 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44C0238A593F00FE9355 /* Constants.swift */; };
 		9FBB44C3238A59FF00FE9355 /* ArticleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44C2238A59FF00FE9355 /* ArticleResource.swift */; };
 		9FBB44C5238A5A9700FE9355 /* ArticlesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44C4238A5A9700FE9355 /* ArticlesResource.swift */; };
+		9FBB44C7238AD4F800FE9355 /* MoyaCacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44C6238AD4F800FE9355 /* MoyaCacheable.swift */; };
+		9FBB44C9238AD50E00FE9355 /* MoyaCacheablePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB44C8238AD50E00FE9355 /* MoyaCacheablePlugin.swift */; };
 		D5C0CDFFC972F511BCF155B8 /* Pods_Newsfeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885B6D0D72963A72E53563A /* Pods_Newsfeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		9FBB44C0238A593F00FE9355 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9FBB44C2238A59FF00FE9355 /* ArticleResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleResource.swift; sourceTree = "<group>"; };
 		9FBB44C4238A5A9700FE9355 /* ArticlesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesResource.swift; sourceTree = "<group>"; };
+		9FBB44C6238AD4F800FE9355 /* MoyaCacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCacheable.swift; sourceTree = "<group>"; };
+		9FBB44C8238AD50E00FE9355 /* MoyaCacheablePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaCacheablePlugin.swift; sourceTree = "<group>"; };
 		A01793F5FA87B8D70705C673 /* Pods-NewsfeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsfeedTests.debug.xcconfig"; path = "Target Support Files/Pods-NewsfeedTests/Pods-NewsfeedTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C44F66D061F719B353B693EE /* Pods_NewsfeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsfeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF49FBA026A7FAB47B0C6775 /* Pods-Newsfeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newsfeed.release.xcconfig"; path = "Target Support Files/Pods-Newsfeed/Pods-Newsfeed.release.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				9FBB44842387BD1100FE9355 /* Resources */,
 				9FBB44BA2389A0ED00FE9355 /* SessionManager.swift */,
 				9FBB44BC2389A10100FE9355 /* RequestType.swift */,
+				9FBB44C6238AD4F800FE9355 /* MoyaCacheable.swift */,
+				9FBB44C8238AD50E00FE9355 /* MoyaCacheablePlugin.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -507,12 +513,14 @@
 				9FBB449123883A7300FE9355 /* NewsFeedCellViewModel.swift in Sources */,
 				9FBB44BD2389A10100FE9355 /* RequestType.swift in Sources */,
 				9FBB449423883A8B00FE9355 /* NewsFeedCell.swift in Sources */,
+				9FBB44C7238AD4F800FE9355 /* MoyaCacheable.swift in Sources */,
 				9FBB44A1238932C100FE9355 /* Repository.swift in Sources */,
 				9FBB44B72389989000FE9355 /* ArticleWebViewController.swift in Sources */,
 				9FBB44B123893AC100FE9355 /* UICollectionViewCell+Extension.swift in Sources */,
 				9FBB44BB2389A0ED00FE9355 /* SessionManager.swift in Sources */,
 				9FBB44A3238932D800FE9355 /* OnlineRepository.swift in Sources */,
 				9FBB44AD23893A3700FE9355 /* ReusableView.swift in Sources */,
+				9FBB44C9238AD50E00FE9355 /* MoyaCacheablePlugin.swift in Sources */,
 				9FBB44C5238A5A9700FE9355 /* ArticlesResource.swift in Sources */,
 				9FBB44A5238932E400FE9355 /* MockRepository.swift in Sources */,
 				9FBB44B9238998A000FE9355 /* ArticleWebViewModel.swift in Sources */,

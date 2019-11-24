@@ -15,8 +15,8 @@ class SessionManager {
     
     private init() {}
     
-    func request<T: Codable>(type _: T.Type, requestType: RequestType, completion handler: @escaping (Result<T, Error>) -> Void) {
-        let provider = MoyaProvider<RequestType>()
+    func request<T: Codable>(type _: T.Type, requestType: RequestType, completion handler: @escaping (Swift.Result<T, Error>) -> Void) {
+        let provider = MoyaProvider<RequestType>(plugins: [MoyaCacheablePlugin()])
         provider.request(requestType) { result in
             switch result {
             case let .success(response):

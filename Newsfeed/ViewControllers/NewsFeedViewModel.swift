@@ -46,7 +46,6 @@ class NewsFeedViewModel: ViewModel {
         isFetchingArticles = true
         repository.getArticles(page: currentPage) { [weak self] result in
             guard let self = self else { return }
-            print("current page: \(self.currentPage)")
             self.isFetchingArticles = false
             switch result {
             case .failure(let error):

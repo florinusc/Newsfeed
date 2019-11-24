@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import Alamofire
 
 enum RequestType: TargetType {
     
@@ -42,5 +43,16 @@ enum RequestType: TargetType {
     
     var headers: [String : String]? {
         return ["Content-type": "application/json"]
+    }
+}
+
+extension RequestType: MoyaCacheable {
+    
+    func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+    
+    var cachePolicy: Self.MoyaCacheablePolicy {
+        return isConnectedToInternet() ? .reloadIgnoringCacheData : .returnCacheDataDontLoad
     }
 }
