@@ -20,7 +20,7 @@ class NewsFeedViewController: UIViewController {
     
     // MARK: - Public variables
     var viewModel: NewsFeedViewModel! {
-        didSet { viewModel.onFetchCompleted = onFetchCompleted(error:) }
+        didSet { viewModel.onFetchCompleted = onFetchCompleted }
     }
     
     // MARK: - Private variables
@@ -123,7 +123,7 @@ extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewData
 
 extension NewsFeedViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        viewModel.getData()
+        viewModel.getData(for: indexPaths)
     }
 }
 

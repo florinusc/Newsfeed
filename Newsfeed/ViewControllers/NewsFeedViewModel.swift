@@ -37,11 +37,16 @@ class NewsFeedViewModel: ViewModel {
     }
     
     // MARK: - Public functions
-    func getData() {
+    func getData(for indexPaths: [IndexPath]? = nil) {
+        if let indexPaths = indexPaths {
+            let indexes = indexPaths.map { $0.item }.sorted()
+            if ((indexes.last ?? 0) + 1) < articles.count { return }
+        }
         guard !isFetchingArticles, currentPage <= maxNumberOfPages else { return }
         isFetchingArticles = true
         repository.getArticles(page: currentPage) { [weak self] result in
             guard let self = self else { return }
+            print("current page: \(self.currentPage)")
             self.isFetchingArticles = false
             switch result {
             case .failure(let error):
