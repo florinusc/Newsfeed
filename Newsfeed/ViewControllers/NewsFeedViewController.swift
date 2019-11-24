@@ -19,9 +19,7 @@ class NewsFeedViewController: UIViewController {
     private let cellHeight: CGFloat = 220.0
     
     // MARK: - Public variables
-    var viewModel: NewsFeedViewModel! {
-        didSet { viewModel.onFetchCompleted = onFetchCompleted(error:) }
-    }
+    var viewModel: NewsFeedViewModel!
     
     // MARK: - Private variables
     private var numberOfCellsPerRow: Int {
@@ -46,16 +44,15 @@ class NewsFeedViewController: UIViewController {
         setupLoader()
         setupCollectionView()
         showLoader()
-        viewModel.getData()
-    }
-    
-    private func onFetchCompleted(error: Error?) {
-        self.hideLoader()
-        if let error = error {
-            self.presentAlert(for: error)
-            return
+        viewModel.getData { [weak self] (error) in
+            guard let self = self else { return }
+            self.hideLoader()
+            if let error = error {
+                self.presentAlert(for: error)
+                return
+            }
+            self.collectionView.reloadData()
         }
-        self.collectionView.reloadData()
     }
     
     private func setupCollectionView() {
@@ -118,12 +115,6 @@ extension NewsFeedViewController: UICollectionViewDelegate, UICollectionViewData
             return CGSize(width: maxWidth, height: cellHeight)
         }
         return CGSize(width: normalWidth, height: cellHeight)
-    }
-}
-
-extension NewsFeedViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        viewModel.getData()
     }
 }
 

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Repository {
-    func getArticles(page: Int, _ block: @escaping (Result<Articles, Error>) -> Void)
+    func getArticles(_ block: @escaping (Result<[Article], Error>) -> Void)
 }

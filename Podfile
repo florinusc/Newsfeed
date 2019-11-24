@@ -6,7 +6,6 @@ target 'Newsfeed' do
   use_frameworks!
 
   pod 'Kingfisher', '~> 5.0'
-  pod 'Moya', '~> 13.0'
 
   target 'NewsfeedTests' do
     inherit! :search_paths
