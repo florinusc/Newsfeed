@@ -9,10 +9,19 @@
 import UIKit
 
 extension UIViewController {
+    
+    var tintColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return .label
+        } else {
+            return .black
+        }
+    }
+    
     func presentAlert(with title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        okAction.setValue(UIColor.black, forKey: "titleTextColor")
+        okAction.setValue(tintColor, forKey: "titleTextColor")
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
@@ -22,7 +31,7 @@ extension UIViewController {
         let customAction = UIAlertAction(title: actionMessage, style: .default) { _ in
             action()
         }
-        customAction.setValue(UIColor.black, forKey: "titleTextColor")
+        customAction.setValue(tintColor, forKey: "titleTextColor")
         alert.addAction(customAction)
         present(alert, animated: true, completion: nil)
     }

@@ -16,6 +16,16 @@ struct Article {
     let content: String?
     let publishDate: String
     let sourceName: String
+    
+    static func from(_ resource: ArticleResource) -> Article {
+        return Article(title: resource.title,
+                       imageUrl: resource.urlToImage,
+                       urlString: resource.url,
+                       description: resource.description,
+                       content: resource.content,
+                       publishDate: resource.publishedAt,
+                       sourceName: resource.source.name)
+    }
 }
 
 extension Article {
