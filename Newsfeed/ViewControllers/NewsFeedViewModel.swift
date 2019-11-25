@@ -18,10 +18,18 @@ class NewsFeedViewModel: ViewModel {
     var numberOfArticles: Int {
         return newsFeedCellViewModels.count
     }
+    var onFetchCompleted: ((Error?) -> Void) = {_ in}
     
     // MARK: - Private variables
     private var articles = [Article]()
     private var newsFeedCellViewModels = [NewsFeedCellViewModel]()
+    private var currentPage = 1
+    private var isFetchingArticles = false
+    private var totalNumberOfArticles = 0
+    private var maxNumberOfPages: Int {
+        if totalNumberOfArticles == 0 { return 1 }
+        return Int((Double(totalNumberOfArticles) / Double(Constants.articlesPerPage)).rounded(.up))
+    }
     
     // MARK: - Lifecycle
     init(repository: Repository) {
@@ -29,18 +37,25 @@ class NewsFeedViewModel: ViewModel {
     }
     
     // MARK: - Public functions
-    func getData(_ block: @escaping (Error?) -> Void) {
-        repository.getArticles { [weak self] result in
+    func getData(for indexPaths: [IndexPath]? = nil) {
+        if let indexPaths = indexPaths {
+            let indexes = indexPaths.map { $0.item }.sorted()
+            if ((indexes.last ?? 0) + 1) < articles.count { return }
+        }
+        guard !isFetchingArticles, currentPage <= maxNumberOfPages else { return }
+        isFetchingArticles = true
+        repository.getArticles(page: currentPage) { [weak self] result in
             guard let self = self else { return }
+            self.isFetchingArticles = false
             switch result {
             case .failure(let error):
-                block(error)
+                self.onFetchCompleted(error)
             case .success(let articles):
-                self.articles = articles
-                self.newsFeedCellViewModels = articles.enumerated().map { (index, article) -> NewsFeedCellViewModel in
-                    return NewsFeedCellViewModel.from(article, isFullWidth: index % self.wideArticleIndex == 0)
-                }
-                block(nil)
+                self.totalNumberOfArticles = articles.total
+                self.articles.append(contentsOf: articles.items)
+                self.processNewsFeedCellViewModels()
+                self.currentPage += 1
+                self.onFetchCompleted(nil)
             }
         }
     }
@@ -53,5 +68,12 @@ class NewsFeedViewModel: ViewModel {
     func articleWebViewModel(at indexPath: IndexPath) -> ArticleWebViewModel? {
         guard indexPath.row >= 0, indexPath.row < numberOfArticles else { return nil }
         return ArticleWebViewModel(urlString: articles[indexPath.row].urlString)
+    }
+    
+    // MARK: - Private functions
+    private func processNewsFeedCellViewModels() {
+        newsFeedCellViewModels = articles.enumerated().map { (index, article) -> NewsFeedCellViewModel in
+            return NewsFeedCellViewModel(article: article, isFullWidth: index % self.wideArticleIndex == 0)
+        }
     }
 }
