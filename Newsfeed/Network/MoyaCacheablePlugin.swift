@@ -9,6 +9,8 @@
 import Foundation
 import Moya
 
+// The idea for this plugin was found here:
+// https://medium.com/@serhatsezer/make-your-moya-cacheable-85d5d0e9bc33
 final class MoyaCacheablePlugin: PluginType {
   func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
     if let moyaCachableProtocol = target as? MoyaCacheable {

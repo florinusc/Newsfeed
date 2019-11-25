@@ -48,6 +48,8 @@ enum RequestType: TargetType {
 
 extension RequestType: MoyaCacheable {
     
+    // The idea for this function came from this thread:
+    // https://stackoverflow.com/a/52733353/4907287
     func isConnectedToInternet() -> Bool {
         return NetworkReachabilityManager()?.isReachable ?? false
     }

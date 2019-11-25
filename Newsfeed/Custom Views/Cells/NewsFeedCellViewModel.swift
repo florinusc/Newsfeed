@@ -32,13 +32,13 @@ struct NewsFeedCellViewModel: ViewModel {
         return "\(timeSince) ago"
     }
     
-    static func from(_ article: Article, isFullWidth: Bool) -> NewsFeedCellViewModel {
-        return NewsFeedCellViewModel(isFullWidth: isFullWidth,
-                                     title: article.title,
-                                     imageUrl: article.imageUrl,
-                                     sourceName: article.sourceName,
-                                     description: article.description,
-                                     content: article.content,
-                                     publishDate: article.publishDate)
+    init(article: Article, isFullWidth: Bool) {
+        self.isFullWidth = isFullWidth
+        self.title = article.title
+        self.imageUrl = article.imageUrl
+        self.sourceName = article.sourceName
+        self.description = article.description
+        self.content = article.content
+        self.publishDate = article.publishDate
     }
 }

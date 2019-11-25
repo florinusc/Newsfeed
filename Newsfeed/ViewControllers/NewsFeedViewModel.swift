@@ -73,7 +73,7 @@ class NewsFeedViewModel: ViewModel {
     // MARK: - Private functions
     private func processNewsFeedCellViewModels() {
         newsFeedCellViewModels = articles.enumerated().map { (index, article) -> NewsFeedCellViewModel in
-            return NewsFeedCellViewModel.from(article, isFullWidth: index % self.wideArticleIndex == 0)
+            return NewsFeedCellViewModel(article: article, isFullWidth: index % self.wideArticleIndex == 0)
         }
     }
 }
