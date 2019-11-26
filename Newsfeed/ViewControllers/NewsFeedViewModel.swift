@@ -12,7 +12,6 @@ class NewsFeedViewModel: ViewModel {
     
     // MARK: - Private constants
     private let repository: Repository
-    private let wideArticleIndex: Int = 7
     
     // MARK: - Public variables
     var numberOfArticles: Int {
@@ -73,7 +72,8 @@ class NewsFeedViewModel: ViewModel {
     // MARK: - Private functions
     private func processNewsFeedCellViewModels() {
         newsFeedCellViewModels = articles.enumerated().map { (index, article) -> NewsFeedCellViewModel in
-            return NewsFeedCellViewModel(article: article, isFullWidth: index % self.wideArticleIndex == 0)
+            let wideArticleIndex = 7
+            return NewsFeedCellViewModel(article: article, isFullWidth: index % wideArticleIndex == 0)
         }
     }
 }

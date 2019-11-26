@@ -20,7 +20,8 @@ class NewsFeedCell: UICollectionViewCell {
     
     // MARK - Public functions
     func setup(with viewModel: NewsFeedCellViewModel) {
-        articleImageView.setImage(viewModel.imageUrl)
+        let placeholderImage = UIImage(named: "newsPlaceholder")
+        articleImageView.setImage(viewModel.imageUrl, placeholderImage: placeholderImage)
         articleImageViewHeightConstraint.constant = viewModel.isFullWidth ? 110.0 : 145.0
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.descriptionText
